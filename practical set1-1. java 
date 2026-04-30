@@ -15,7 +15,6 @@ public class MeterToFeetDynamic {
 
             // Output
             System.out.printf("Distance in feet: %.2f\n", feet);
-
             // Ask user to continue
             System.out.print("Do you want to convert another value? (y/n): ");
             choice = sc.next().charAt(0);
