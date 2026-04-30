@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class MeterToFeetDynamic {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        char choice;
+
+        do {
+            // Input
+            System.out.print("Enter distance in meters: ");
+            double meters = sc.nextDouble();
+
+            // Conversion
+            double feet = meters * 3.28084;
+
+            // Output
+            System.out.printf("Distance in feet: %.2f\n", feet);
+
+            // Ask user to continue
+            System.out.print("Do you want to convert another value? (y/n): ");
+            choice = sc.next().charAt(0);
+
+        } while (choice == 'y' || choice == 'Y');
+
+        System.out.println("Program ended.");
+        sc.close();
+    }
+}
