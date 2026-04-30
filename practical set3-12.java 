@@ -1,0 +1,25 @@
+class Volume {
+
+    // Cube
+    double calculateVolume(double side) {
+        return side * side * side;
+    }
+
+    // Rectangular Cube
+    double calculateVolume(double l, double w, double h) {
+        return l * w * h;
+    }
+
+    // Sphere
+    double calculateVolume(float r) {
+        return (4.0 / 3.0) * Math.PI * r * r * r;
+    }
+
+    public static void main(String[] args) {
+        Volume v = new Volume();
+
+        System.out.println("Cube Volume = " + v.calculateVolume(3));
+        System.out.println("Rectangular Cube Volume = " + v.calculateVolume(4, 5, 6));
+        System.out.println("Sphere Volume = " + v.calculateVolume(2.5f));
+    }
+}
