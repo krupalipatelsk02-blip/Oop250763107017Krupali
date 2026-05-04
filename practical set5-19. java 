@@ -1,0 +1,52 @@
+package exam;   // single package
+
+// Student class
+class Student {
+    protected int rollNo;
+    protected String name;
+
+    // Constructor
+    public Student(int rollNo, String name) {
+        this.rollNo = rollNo;
+        this.name = name;
+    }
+
+    // Display student details
+    public void displayStudent() {
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Name: " + name);
+    }
+}
+
+// Result class extending Student
+public class Result extends Student {
+    private int marks1, marks2, marks3;
+
+    // Constructor
+    public Result(int rollNo, String name, int m1, int m2, int m3) {
+        super(rollNo, name);
+        this.marks1 = m1;
+        this.marks2 = m2;
+        this.marks3 = m3;
+    }
+
+    // Display result
+    public void displayResult() {
+        int total = marks1 + marks2 + marks3;
+        double average = total / 3.0;
+
+        System.out.println("\n--- Mark Sheet ---");
+        displayStudent();
+        System.out.println("Marks 1: " + marks1);
+        System.out.println("Marks 2: " + marks2);
+        System.out.println("Marks 3: " + marks3);
+        System.out.println("Total: " + total);
+        System.out.println("Average: " + average);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Result r = new Result(101, "Krups", 85, 90, 88);
+        r.displayResult();
+    }
+}
