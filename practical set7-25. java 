@@ -1,0 +1,46 @@
+// Class with synchronized method
+class TablePrinter {
+
+    // synchronized method
+    public synchronized void printTable(int num) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num * i));
+            try {
+                Thread.sleep(400); // small delay to show effect
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+        System.out.println();
+    }
+}
+
+// Thread class
+class MyThread extends Thread {
+    TablePrinter obj;
+    int number;
+
+    public MyThread(TablePrinter obj, int number) {
+        this.obj = obj;
+        this.number = number;
+    }
+
+    public void run() {
+        obj.printTable(number);
+    }
+}
+
+// Main class
+public class SyncTableExample {
+    public static void main(String[] args) {
+
+        TablePrinter printer = new TablePrinter();
+
+        // Two threads with same object
+        MyThread t1 = new MyThread(printer, 5);
+        MyThread t2 = new MyThread(printer, 7);
+
+        t1.start();
+        t2.start();
+    }
+}
